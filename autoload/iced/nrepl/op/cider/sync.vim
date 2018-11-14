@@ -79,6 +79,22 @@ function! iced#nrepl#op#cider#sync#ns_aliases(ns) abort
       \ })
 endfunction " }}}
 
+" format-code {{{
+function! iced#nrepl#op#cider#sync#format_code(code, options) abort
+  if !iced#nrepl#is_connected()
+    call iced#message#error('not_connected')
+    return ''
+  endif
+
+  return iced#nrepl#sync#send({
+        \ 'id': iced#nrepl#id(),
+        \ 'op': 'format-code',
+        \ 'session': iced#nrepl#current_session(),
+        \ 'code': a:code,
+        \ 'options': a:options,
+        \ })
+endfunction " }}}
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
 " vim:fdm=marker:fdl=0
