@@ -73,7 +73,6 @@ case "$1" in
             lein update-in :dependencies conj '[nrepl "0.5.3"]' -- \
               update-in :dependencies conj '[refactor-nrepl "2.4.0"]' -- \
               update-in :dependencies conj '[cider/cider-nrepl "0.19.0"]' -- \
-              update-in :dependencies conj '[cider/piggieback "0.3.10"]' -- \
               update-in :dependencies conj '[iced-nrepl "0.3.0"]' -- \
               update-in :repl-options:nrepl-middleware conj 'cider.nrepl/wrap-complete' -- \
               update-in :repl-options:nrepl-middleware conj 'cider.nrepl/wrap-debug' -- \
@@ -88,7 +87,6 @@ case "$1" in
               update-in :repl-options:nrepl-middleware conj 'cider.nrepl/wrap-test' -- \
               update-in :repl-options:nrepl-middleware conj 'cider.nrepl/wrap-trace' -- \
               update-in :repl-options:nrepl-middleware conj 'cider.nrepl/wrap-undef' -- \
-              update-in :repl-options:nrepl-middleware conj 'cider.piggieback/wrap-cljs-repl' -- \
               update-in :repl-options:nrepl-middleware conj 'refactor-nrepl.middleware/wrap-refactor' -- \
               update-in :repl-options:nrepl-middleware conj 'iced.nrepl/wrap-iced' -- \
               $OPTIONS repl
@@ -98,7 +96,6 @@ case "$1" in
               -d nrepl:0.5.3 \
               -d refactor-nrepl:2.4.0 \
               -d cider/cider-nrepl:0.19.0 \
-              -d cider/piggieback:0.3.10 \
               -d iced-nrepl:0.3.0 -- \
               cider.tasks/add-middleware \
               -m cider.nrepl/wrap-complete \
@@ -116,7 +113,6 @@ case "$1" in
               -m cider.nrepl/wrap-test \
               -m cider.nrepl/wrap-trace \
               -m cider.nrepl/wrap-undef \
-              -m cider.piggieback/wrap-cljs-repl \
               -m refactor-nrepl.middleware/wrap-refactor \
               -m iced.nrepl/wrap-iced -- \
               $OPTIONS repl
